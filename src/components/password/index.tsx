@@ -9,15 +9,15 @@ export function PasswordGenerator() {
   const [inputType, setInputType] = useState(false)
 
   function generatePassword() {
-    const passwordFormat = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ1234567890!@#$%&*()_+.'
+    const passwordFormat = /^[A-Za-z0-9!@#$%&*()_+.]+$/
     let result = ''
-    const charactersLength = passwordFormat.length
+    const charactersLength = passwordFormat.toString().length
     const passwordSize = 16
 
     for (let i = 0; i < passwordSize; i++) {
-      result += passwordFormat.charAt(
-        Math.floor(Math.random() * charactersLength),
-      )
+      result += passwordFormat
+        .toString()
+        .charAt(Math.floor(Math.random() * charactersLength))
     }
 
     setGeneratePassword(result)

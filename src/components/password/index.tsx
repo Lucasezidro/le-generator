@@ -38,6 +38,8 @@ export function PasswordGenerator() {
 
   function handleGenerateNewPassword() {
     generatePassword()
+
+    toast.success('Senha gerada com sucesso!')
   }
 
   return (
@@ -68,6 +70,7 @@ export function PasswordGenerator() {
         </div>
       </div>
       <button
+        data-testId="button-generate-password"
         onClick={handleGenerateNewPassword}
         className="bg-teal-500 p-4 rounded-full text-teal-950 font-bold hover:bg-teal-600"
       >
